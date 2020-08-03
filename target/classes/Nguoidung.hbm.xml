@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 2, 2020 8:53:50 PM by Hibernate Tools 5.4.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="library" name="pojo.Nguoidung" table="nguoidung">
+        <id name="username" type="string">
+            <column name="Username"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="password" type="string">
+            <column name="Password" not-null="true"/>
+        </property>
+        <property name="hoten" type="string">
+            <column name="Hoten"/>
+        </property>
+        <property name="loainguoidung" type="java.lang.Integer">
+            <column name="Loainguoidung"/>
+        </property>
+        <property name="email" type="string" >
+            <column name="Email"/>
+        </property>
+    </class>
+</hibernate-mapping>

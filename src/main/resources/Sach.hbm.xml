@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 2, 2020 8:53:50 PM by Hibernate Tools 5.4.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="library" name="pojo.Sach" table="sach">
+        <id name="masach" type="string">
+            <column name="Masach"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="pojo.Theloai" embed-xml="true" fetch="select" insert="true" name="theloai">
+            <column name="Matheloai"/>
+        </many-to-one>
+        <property name="tensach" type="string">
+            <column name="Tensach"/>
+        </property>
+        <property name="tacgia" type="string">
+            <column name="Tacgia"/>
+        </property>
+        <property name="namxuatban" type="date">
+            <column length="10" name="Namxuatban"/>
+        </property>
+        <property name="nhaxuatban" type="string">
+            <column name="Nhaxuatban"/>
+        </property>
+        <property name="ngaynhap" type="date">
+            <column length="10" name="Ngaynhap"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" name="sachmuons" table="sachmuon">
+            <key on-delete="noaction">
+                <column name="Masach"/>
+            </key>
+            <one-to-many class="pojo.Sachmuon"/>
+        </set>
+    </class>
+</hibernate-mapping>

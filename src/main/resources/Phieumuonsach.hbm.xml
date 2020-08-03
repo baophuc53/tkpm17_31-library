@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 2, 2020 8:53:50 PM by Hibernate Tools 5.4.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="library" name="pojo.Phieumuonsach" table="phieumuonsach">
+        <id name="maphieu" type="string">
+            <column name="Maphieu"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="pojo.Docgia" embed-xml="true" fetch="select" insert="true" name="docgia" update="true">
+            <column name="Madocgia"/>
+        </many-to-one>
+        <property name="ngaymuon" type="date">
+            <column length="10" name="Ngaymuon"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" name="sachmuons" table="sachmuon">
+            <key on-delete="noaction">
+                <column name="Maphieu" not-null="true"/>
+            </key>
+            <one-to-many class="pojo.Sachmuon"/>
+        </set>
+    </class>
+</hibernate-mapping>

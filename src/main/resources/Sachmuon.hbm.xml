@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 2, 2020 8:53:50 PM by Hibernate Tools 5.4.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="library" name="pojo.Sachmuon" table="sachmuon">
+        <composite-id class="pojo.SachmuonId" name="id">
+            <key-property name="maphieu" type="string">
+                <column name="Maphieu"/>
+            </key-property>
+            <key-property name="masach" type="string">
+                <column name="Masach"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="pojo.Phieumuonsach" embed-xml="true" fetch="select" insert="false" name="phieumuonsach" update="false">
+            <column name="Maphieu" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="pojo.Sach" embed-xml="true" fetch="select" insert="false" name="sach" update="false">
+            <column name="Masach"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
